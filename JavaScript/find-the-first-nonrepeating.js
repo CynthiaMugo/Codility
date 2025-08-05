@@ -19,8 +19,8 @@ function firstNonRepeatCharacter(string) {
         if (charCount[char] === 1){
             return char;
         }
-        return null
     }
+    return null
 }
 console.log(firstNonRepeatCharacter("Hello"));
-console.log(firstNonRepeatCharacter("Swiss"))
+console.log(firstNonRepeatCharacter("Swiss"));
