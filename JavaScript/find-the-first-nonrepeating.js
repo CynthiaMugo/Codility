@@ -5,7 +5,7 @@
 // Output: "w"
 function firstNonRepeatCharacter(string) {
     const charCount = {};
-    
+    // hello h:1 e:1 h:2
     for (let char of string){
         if(charCount[char]){
             charCount[char] += 1;
