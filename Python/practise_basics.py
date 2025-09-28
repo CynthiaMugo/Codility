@@ -29,16 +29,16 @@ print(count_consonants("aeiou"))
 print(count_consonants("Hello World"))
 print(count_consonants("CYNTHIA MUGO"))
 
-def count_vowels(string):
+def count_consonants2(string):
     count = 0
     vowels = "aeiouAEIOU"
     for char in string:
         if char not in vowels and char.isalpha():
             count += 1
     return count
-print(count_consonants("aeiou"))
-print(count_consonants("Hello World"))
-print(count_consonants("CYNTHIA MUGO"))
+print(count_consonants2("aeiou"))
+print(count_consonants2("Hello World"))
+print(count_consonants2("CYNTHIA MUGO"))
 
 # Write a function count_vowel_rich_words(sentence) that:
 # Takes a string sentence as input.
@@ -156,10 +156,94 @@ def fizzbuzz2(num):
 fizzbuzz2(15)
 # Find Max in List
 # Write find_max(nums) that returns the largest number in a list.
+def find_max(nums):
+    if not nums:
+        return None
+    max_num = nums[0]
+    for num in nums[1:]: #index 0 is assined so skip over it to iterate over the rest of the nums
+        if num > max_num:
+            max_num = num
+    return max_num
+print(find_max([3,4,6,8,9,10]))
+print(find_max([30,40,76,88,89,10])) #Python has an inbuilt method known as max to check for max digits amd min for minimun
+
+def find_min(nums):
+    # return min(nums)
+    if not nums:
+        return None
+    min_num = nums[0]
+    for num in nums[1:]:
+        if num < min_num:
+            min_num = num
+    return min_num
+print(find_min([3,4,6,8,9,10]))
+print(find_min([30,40,76,88,89,10]))
 
 # Sum of Digits
 # Write sum_digits(n) that takes an integer and returns the sum of its digits.
 # Example: sum_digits(123) → 6
+def sum_digits(num):
+    return sum(int(digit) for digit in str(num))
+print(sum_digits(123))
+print(sum_digits(86792))
+
+# Product of degits
+def product_digits(num):
+    product = 1
+    for digit in str(num):
+        product *= int(digit)
+    return product
+print(product_digits(6474))
+print(product_digits(72))
+
+# Write count_digits(n) that returns how many digits a number has.
+# Example: count_digits(50234) → 5.
+def count_digits(num):
+    count = 0
+    for digit in str(num):
+        count += 1
+    return count
+print(count_digits(50234))
+print(count_digits(5023475943884))
+
+# Reverse Number
+# Write reverse_number(n) that reverses the digits of a number.
+# Example: reverse_number(1234) → 4321.
+def reverse_number(num):
+    reverse = str(num)[::-1] # to account for negatives use the method abs str(abs(num))[::-1]
+    return int(reverse)
+print(reverse_number(1234))
+# Check Palindrome Number
+# Write is_palindrome(n) that checks if a number reads the same backwards.
+# Example: is_palindrome(121) → True, is_palindrome(123) → False.
+def is_palindrome_num(num):
+    n = str(num)
+    return n == str(num)[::-1]
+print(is_palindrome_num(121))
+print(is_palindrome_num(123))
+# Largest Digit
+# Write largest_digit(n) that finds the largest digit inside a number.
+# Example: largest_digit(98542) → 9.
+def largest_digit(num):
+    n = str(num)
+    largest = -1
+    for digit in n:
+        if int(digit) > largest:
+            largest = int(digit)
+    return largest
+print(largest_digit(98542))
+def least_digit(num):
+    n = str(abs(num))         # handle negatives
+    smallest = 9              # max possible digit is 9
+    for digit in n:
+        d = int(digit)
+        if d < smallest:
+            smallest = d
+    return smallest
+
+print(least_digit(98542))   # 2
+print(least_digit(50234))   # 0
+print(least_digit(-789))    # 7
 
 # Word Frequency Counter
 # Write count_words(sentence) that returns a dictionary of word frequencies.

@@ -91,16 +91,33 @@ def reverse_censor2(string):
 print(reverse_censor2("Hello"))
 # Write a function multiples_of_7(n) that prints all multiples of 7 up to n, separated by spaces.
 def multiples_of_7(num):
-    pass
-print(multiples_of_7(30))  # 7 14 21 28
+    for i in range(7, num + 1, 7):
+        if i % 7 == 0:
+            print(i, end=" ")
+multiples_of_7(30) # 7 14 21 28
+
+def multiples2_of_7(num):
+    return [i for i in range(7, num + 1, 7)]
+
+print(multiples2_of_7(30))  # [7, 14, 21, 28]
+
 
 # Write reverse_words(sentence) that reverses each word in a sentence but keeps their order.
 def reverse_words(sentence):
-    pass
+    words = sentence.split()
+    reversed_words = [word[::-1] for word in words]
+    return " ".join(reversed_words)
 print(reverse_words("Hello World"))  # olleH dlroW
 
+def reverse_words2(sentence):
+    return " ".join(word[::-1] for word in sentence.split())
+
+print(reverse_words2("Hello World"))  # olleH dlroW
+
 # Write long_words(sentence, n) that returns words longer than n letters.
-# def long_words(sentence, n)
-#     pass
-# print(long_words("Python is really fun", 4))  
-# ['Python', 'really']
+def long_words(sentence, n):
+    words = sentence.split()
+    result = [word for word in words if len(word) > n]
+    return result
+print(long_words("Python is really fun", 4))  
+['Python', 'really']
