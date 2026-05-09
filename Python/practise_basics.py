@@ -247,6 +247,28 @@ print(least_digit(-789))    # 7
 
 # Word Frequency Counter
 # Write count_words(sentence) that returns a dictionary of word frequencies.
+def count_words(sentence):
+    words = sentence.split()
+    word_count = {}
+    for word in words:
+        word = word.lower()  # to make it case insensitive
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+    return word_count
+# Write a function that takes a string and returns a dictionary showing how many times each character appears in that string.
+def char_frequency(string):
+     # to ignore spaces and punctuation
+    frequency = {}
+    for char in string:
+        # char = char.isalpha()
+        if char in frequency:
+            frequency[char] += 1
+        else:
+            frequency[char] = 1
+    return frequency
+print(char_frequency("hello world"))
 
 # Factorial (Loop)
 # Write factorial_iter(n) using a loop.
@@ -256,3 +278,16 @@ print(least_digit(-789))    # 7
 
 # Remove Duplicates from List
 # Write remove_duplicates(nums) that takes a list and returns a new list without duplicates.
+def remove_duplicates(nums):
+    return list(set(nums))
+print(remove_duplicates([1,2,2,3,4,4,5]))
+
+# longest word in a sentence
+def longest_word(sentence):
+    words = sentence.split()
+    longest = ""
+    for word in words:
+        if len(word) > len(longest):
+            longest = word
+    return longest
+print(longest_word("I love programming challenges"))

@@ -10,7 +10,7 @@ def find_non_repeat_char(string):
         if char in count:
             count[char] += 1
         else:
-            count[char] =1
+            count[char] = 1
         print(count)
 
     for char in string:

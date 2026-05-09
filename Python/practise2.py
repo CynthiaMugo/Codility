@@ -109,6 +109,7 @@ def reverse_words(sentence):
     return " ".join(reversed_words)
 print(reverse_words("Hello World"))  # olleH dlroW
 
+
 def reverse_words2(sentence):
     return " ".join(word[::-1] for word in sentence.split())
 
